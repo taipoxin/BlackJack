@@ -14,6 +14,7 @@ interface Cards {
     SUITS getSuit();
     String getFace();
     Integer getScore();
+    boolean getACE();
 
 
 
@@ -24,6 +25,7 @@ class Card implements Cards {
     private SUITS suit;
     private String face;
     private Integer score;
+    private boolean ACE = false;
 
     public SUITS getSuit() {
         return suit;
@@ -36,6 +38,8 @@ class Card implements Cards {
     public Integer getScore() {
         return score;
     }
+
+    public boolean getACE() {return ACE;}
 
     private void CardsvalueFiller() {
         cardsvalue.put("2", 2);
@@ -61,6 +65,10 @@ class Card implements Cards {
         suit = SUITS.values()[random.nextInt(4)];
         face = (String) cardsvalue.keySet().toArray()[random.nextInt(13)];
         score = cardsvalue.get(face);
+
+        if (face.equals("Ace"))
+            ACE = true;
+
     }
 
 }

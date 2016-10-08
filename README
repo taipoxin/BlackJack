@@ -1,10 +1,6 @@
-Hello. There i create new Branch for implementation of the core of game.
-
-*Response from IntelliJ IDEA*
-
-Player: exactly we can play with many players (less then 7) - [1-6];
+BlackJack
+@author: tiranid99 (Ermakovich)
+@version 0.4
 
 
-Dealer: he is one -> static methods and Singleton.
-    static GiveCard
-    static
+Maybe it work.
