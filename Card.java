@@ -1,5 +1,4 @@
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 
 import java.util.*;
 
@@ -20,7 +19,7 @@ interface Cards {
 
 }
 
-public class Card implements Cards {
+class Card implements Cards {
     private static Random random = new Random();
     private SUITS suit;
     private String face;
@@ -56,6 +55,7 @@ public class Card implements Cards {
 
     // Constructor
     public Card() {
+
         CardsvalueFiller();
 
         suit = SUITS.values()[random.nextInt(4)];
@@ -63,18 +63,4 @@ public class Card implements Cards {
         score = cardsvalue.get(face);
     }
 
-
-
-    public static void main(String[] args) {
-        Cards card = new Card();
-        System.out.println
-                ("face " +
-                card.getFace() + "\nsuit " +
-                card.getSuit() + "\nscore " +
-                card.getScore()
-                );
-
-        System.out.println(new Card().getFace());
-
-    }
 }
