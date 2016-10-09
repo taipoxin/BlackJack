@@ -1,5 +1,4 @@
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 
 import java.util.*;
 
@@ -15,16 +14,18 @@ interface Cards {
     SUITS getSuit();
     String getFace();
     Integer getScore();
+    boolean getACE();
 
 
 
 }
 
-public class Card implements Cards {
+class Card implements Cards {
     private static Random random = new Random();
     private SUITS suit;
     private String face;
     private Integer score;
+    private boolean ACE = false;
 
     public SUITS getSuit() {
         return suit;
@@ -37,6 +38,8 @@ public class Card implements Cards {
     public Integer getScore() {
         return score;
     }
+
+    public boolean getACE() {return ACE;}
 
     private void CardsvalueFiller() {
         cardsvalue.put("2", 2);
@@ -56,25 +59,16 @@ public class Card implements Cards {
 
     // Constructor
     public Card() {
+
         CardsvalueFiller();
 
         suit = SUITS.values()[random.nextInt(4)];
         face = (String) cardsvalue.keySet().toArray()[random.nextInt(13)];
         score = cardsvalue.get(face);
-    }
 
-
-
-    public static void main(String[] args) {
-        Cards card = new Card();
-        System.out.println
-                ("face " +
-                card.getFace() + "\nsuit " +
-                card.getSuit() + "\nscore " +
-                card.getScore()
-                );
-
-        System.out.println(new Card().getFace());
+        if (face.equals("Ace"))
+            ACE = true;
 
     }
+
 }
