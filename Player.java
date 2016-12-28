@@ -21,7 +21,7 @@ class Player implements Players {
     int bet;
     int aces;
     BlackJack bj = BlackJack.NULL;
-
+    boolean bkr = false;
 
     Card[] hand = new Card[5];
     int cardsCount;
@@ -38,7 +38,6 @@ class Player implements Players {
 
     public void Bet(int bet) {
         this.bet = bet;
-        money -= bet;
     }
 
 }
